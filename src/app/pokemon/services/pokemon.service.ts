@@ -77,6 +77,10 @@ export class PokemonService {
     private paginatorService: PaginatorService
   ) {}
 
+  /**
+   * notifies that new pokemon is selected.
+   * @param pokemon
+   */
   public onPokemonSelected(pokemon: string): void {
     this.pokemonSelectedSubject.next(pokemon);
   }

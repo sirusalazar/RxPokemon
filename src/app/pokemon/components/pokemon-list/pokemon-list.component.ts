@@ -20,6 +20,10 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * notifies to service that a pokemon has been selected from the list
+   * @param pokemonName
+   */
   public showDetails(pokemonName: string): void {
     this.pokemonService.onPokemonSelected(pokemonName);
   }

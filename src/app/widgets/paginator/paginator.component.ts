@@ -17,10 +17,17 @@ export class PaginatorComponent {
 
   constructor(private paginatorService: PaginatorService) {}
 
+  /**
+   * Method to notify when items per page is changed
+   * @param item
+   */
   public onChangeSelect(item: number): void {
     this.paginatorService.onItemSelected(item);
   }
 
+  /**
+   * Method to go to previous page
+   */
   public prevPage(): void {
     if (this.currentPage > 0) {
       this.currentPage--;
@@ -28,6 +35,9 @@ export class PaginatorComponent {
     }
   }
 
+  /**
+   * Method to go to next page
+   */
   public nextPage(): void {
     if (this.currentPage < this.numPages()) {
       this.currentPage++;
@@ -35,6 +45,10 @@ export class PaginatorComponent {
     }
   }
 
+  /**
+   * Method to calculate the amount of pages
+   * @returns
+   */
   public numPages(): number {
     if (this.totalItems && this.itemsPerPage) {
       return Math.ceil(this.totalItems / this.itemsPerPage);
@@ -42,6 +56,10 @@ export class PaginatorComponent {
     return 0;
   }
 
+  /**
+   * Method to navigate to especific page
+   * @param page
+   */
   public goToPage(page: number): void {
     if (page < 0) page = 0;
     if (page > this.numPages()) page = this.numPages();
