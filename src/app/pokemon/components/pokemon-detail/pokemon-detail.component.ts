@@ -1,15 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import {
-  EMPTY,
-  Subject,
-  catchError,
-  tap,
-  Observable,
-  combineLatest,
-  map,
-  of,
-} from 'rxjs';
+import { Subject, catchError, Observable, combineLatest, map } from 'rxjs';
 import { PokemonService } from '../../services/pokemon.service';
+import { EMPTY } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -30,7 +22,7 @@ export class PokemonDetailComponent {
     catchError(({ message }) => {
       console.error(message);
       this.errorMessageSubject.next(message);
-      return of(null);
+      return EMPTY;
     })
   );
 

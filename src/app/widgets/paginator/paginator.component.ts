@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PaginatorService } from './paginator.service';
 
 @Component({
@@ -63,6 +63,7 @@ export class PaginatorComponent {
   public goToPage(page: number): void {
     if (page < 0) page = 0;
     if (page > this.numPages()) page = this.numPages();
+    this.currentPage = page;
     this.paginatorService.onPagechanged(page);
   }
 }

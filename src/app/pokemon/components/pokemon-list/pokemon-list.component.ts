@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { PaginatorService } from '../../../widgets/paginator/paginator.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-list',
