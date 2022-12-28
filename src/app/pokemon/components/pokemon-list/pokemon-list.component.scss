@@ -1,0 +1,15 @@
+.card {
+    margin-bottom: 10px;
+    &-body {
+        height: 503px;
+        overflow-y: auto;
+    }
+}
+img {
+    height: 30px;
+    float: left;
+}
+
+.btn {
+    margin-top: 10px;
+}

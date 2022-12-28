@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-between">
+  <div>
+    <button (click)="prevPage()">prev</button>
+    <button (click)="nextPage()">next</button>
+  </div>
+
+  <div>
+    <label>Go to page:</label>
+    <select
+      class="custom-select custom-select-sm"
+      [value]="currentPage"
+      (change)="goToPage($any($event.target).value)"
+    >
+      <option
+        [value]="i"
+        *ngFor="let item of [].constructor(numPages()); let i = index"
+      >
+        {{ i + 1 }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <label>Items per page:</label>
+    <select
+      class="custom-select custom-select-sm"
+      *ngIf="itemsPerPage$ | async as itemsPerPage"
+      (change)="onChangeSelect($any($event.target).value)"
+    >
+      <option [value]="item" *ngFor="let item of itemsPerPage">
+        {{ item }}
+      </option>
+    </select>
+  </div>
+</div>

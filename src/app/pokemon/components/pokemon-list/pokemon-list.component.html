@@ -1,0 +1,28 @@
+<div class="card" *ngIf="pokemonList$ | async as pokemonList">
+  <div class="card-header d-flex justify-content-between">
+    <h4>Pokemon list</h4>
+  </div>
+  <div class="card-body">
+    <div class="list-group">
+      <button
+        type="button"
+        class="list-group-item"
+        *ngFor="let pokemon of pokemonList"
+        (click)="showDetails(pokemon.name)"
+      >
+        <img
+          class="rounded float-left"
+          [src]="pokemon.spriteUrl"
+          alt="Card image cap"
+        />
+        {{ pokemon.name }}
+      </button>
+    </div>
+  </div>
+  <div class="card-footer">
+    <app-paginator
+      [totalItems]="totalPokemons$ | async"
+      [itemsPerPage]="itemsPerPage$ | async"
+    ></app-paginator>
+  </div>
+</div>

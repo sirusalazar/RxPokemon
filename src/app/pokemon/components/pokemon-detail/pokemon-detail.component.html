@@ -1,0 +1,35 @@
+<div class="alert alert-danger" *ngIf="errorMessage$ | async as errorMessage">
+  {{ errorMessage }}
+</div>
+<div class="card" *ngIf="fullPokemonData$ | async as pokemonData">
+  <div class="card-header">
+    <h4>{{ pokemonData.name }}</h4>
+  </div>
+  <img
+    class="rounded mx-auto d-block"
+    [src]="pokemonData.details.sprites.other.dream_world.front_default"
+    alt="Card image cap"
+  />
+  <div class="card-body">
+    <h5 class="card-title">Abilities</h5>
+    <ul>
+      <li class="card-text" *ngFor="let ability of pokemonData.abilities">
+        {{ ability.effect }}
+      </li>
+    </ul>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <strong>Height : </strong>{{ pokemonData.details.height }}
+      </li>
+      <li class="list-group-item">
+        <strong>Weight : </strong>{{ pokemonData.details.weight }}
+      </li>
+      <li
+        *ngFor="let stat of pokemonData.details.stats"
+        class="list-group-item"
+      >
+        <strong>{{ stat.stat.name }} : </strong>{{ stat.base_stat }}
+      </li>
+    </ul>
+  </div>
+</div>
