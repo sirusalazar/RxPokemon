@@ -21,6 +21,10 @@ export class PokemonListComponent {
 
   constructor() {}
 
+  /**
+   * emmits the name of the pokemon selected to parent component
+   * @param pokemonName
+   */
   public showDetails(pokemonName: string) {
     this.showPokemonDetails.emit(pokemonName);
   }

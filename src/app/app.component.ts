@@ -35,7 +35,7 @@ export class AppComponent {
   ) {}
 
   /**
-   * notifies to service that a pokemon has been selected from the list
+   * notifies to service that a pokemon has been selected from the list or ttyped from search box
    * @param pokemonName
    */
   public showPokemonDetails(pokemonName: string): void {
