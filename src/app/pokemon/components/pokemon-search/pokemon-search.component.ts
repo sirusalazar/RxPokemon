@@ -1,19 +1,26 @@
-import { Component } from '@angular/core';
-import { PokemonService } from '../../services/pokemon.service';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-pokemon-search',
   templateUrl: './pokemon-search.component.html',
   styleUrls: ['./pokemon-search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PokemonSearchComponent {
-  constructor(private pokemonService: PokemonService) {}
+  @Output() showPokemonDetails = new EventEmitter<string>();
+
+  constructor() {}
 
   /**
-   * method to dispatch new search params
-   * @param pokemon
+   * emmit user input to parent component
+   * @param pokemonName
    */
-  public searchPokemon(pokemon: string): void {
-    this.pokemonService.onPokemonSelected(pokemon);
+  public showDetails(pokemonName: string): void {
+    this.showPokemonDetails.emit(pokemonName);
   }
 }

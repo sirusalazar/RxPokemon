@@ -13,7 +13,7 @@ export class PaginatorComponent {
   public currentPage = 0;
 
   public page$ = this.paginatorService.pageSelected$;
-  public itemsPerPage$ = this.paginatorService.itemsPerPage$;
+  public itemsPerPage$ = this.paginatorService.itemsPerPageOptions$;
 
   constructor(private paginatorService: PaginatorService) {}
 

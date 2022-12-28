@@ -1,7 +1,7 @@
-<div class="alert alert-danger" *ngIf="errorMessage$ | async as errorMessage">
+<div class="alert alert-danger" *ngIf="errorMessage">
   {{ errorMessage }}
 </div>
-<div class="card" *ngIf="fullPokemonData$ | async as pokemonData">
+<div class="card" *ngIf="pokemonData">
   <div class="card-header">
     <h4>{{ pokemonData.name }}</h4>
   </div>

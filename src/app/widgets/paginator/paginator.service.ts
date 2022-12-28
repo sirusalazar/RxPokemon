@@ -14,7 +14,7 @@ export class PaginatorService {
   private totalItemsSubject = new BehaviorSubject<number>(0);
   public totalItems$ = this.totalItemsSubject.asObservable();
 
-  public itemsPerPage$ = of([10, 15, 25]);
+  public itemsPerPageOptions$ = of([10, 15, 25]);
 
   /**
    * notifies when items per pagge is changed

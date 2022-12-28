@@ -1,29 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { PokemonService } from '../../services/pokemon.service';
-import { PaginatorService } from '../../../widgets/paginator/paginator.service';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PokemonListComponent implements OnInit {
-  public pokemonList$ = this.pokemonService.pokemonList$;
-  public totalPokemons$ = this.paginatorService.totalItems$;
-  public itemsPerPage$ = this.paginatorService.itemsperPage$;
+export class PokemonListComponent {
+  @Input() public pokemonList!: Array<any> | null;
+  @Input() public totalPokemons!: number | null;
+  @Input() public itemsPerPage!: number | null;
 
-  constructor(
-    private pokemonService: PokemonService,
-    private paginatorService: PaginatorService
-  ) {}
+  @Output() showPokemonDetails = new EventEmitter<string>();
 
-  ngOnInit(): void {}
+  constructor() {}
 
-  /**
-   * notifies to service that a pokemon has been selected from the list
-   * @param pokemonName
-   */
-  public showDetails(pokemonName: string): void {
-    this.pokemonService.onPokemonSelected(pokemonName);
+  public showDetails(pokemonName: string) {
+    this.showPokemonDetails.emit(pokemonName);
   }
 }

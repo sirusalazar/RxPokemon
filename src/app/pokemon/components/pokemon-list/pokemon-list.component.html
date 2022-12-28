@@ -1,4 +1,4 @@
-<div class="card" *ngIf="pokemonList$ | async as pokemonList">
+<div class="card" *ngIf="pokemonList">
   <div class="card-header d-flex justify-content-between">
     <h4>Pokemon list</h4>
   </div>
@@ -21,8 +21,8 @@
   </div>
   <div class="card-footer">
     <app-paginator
-      [totalItems]="totalPokemons$ | async"
-      [itemsPerPage]="itemsPerPage$ | async"
+      [totalItems]="totalPokemons"
+      [itemsPerPage]="itemsPerPage"
     ></app-paginator>
   </div>
 </div>
