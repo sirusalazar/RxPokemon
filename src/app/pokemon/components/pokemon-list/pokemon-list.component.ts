@@ -19,8 +19,6 @@ export class PokemonListComponent {
 
   @Output() showPokemonDetails = new EventEmitter<string>();
 
-  constructor() {}
-
   /**
    * emmits the name of the pokemon selected to parent component
    * @param pokemonName

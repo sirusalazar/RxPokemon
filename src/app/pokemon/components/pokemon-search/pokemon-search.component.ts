@@ -14,8 +14,6 @@ import {
 export class PokemonSearchComponent {
   @Output() showPokemonDetails = new EventEmitter<string>();
 
-  constructor() {}
-
   /**
    * emmit user input to parent component
    * @param pokemonName

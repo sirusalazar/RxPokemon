@@ -14,6 +14,4 @@ import {
 export class PokemonDetailComponent {
   @Input() public errorMessage!: string | null;
   @Input() public pokemonData!: any;
-
-  constructor() {}
 }

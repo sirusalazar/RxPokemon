@@ -5,10 +5,12 @@ import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-deta
 import { PokemonService } from './services/pokemon.service';
 import { PokemonSearchComponent } from './components/pokemon-search/pokemon-search.component';
 import { WidgetsModule } from '../widgets/widgets.module';
+import { PokemonComponent } from './pokemon.component';
 const components = [
   PokemonListComponent,
   PokemonDetailComponent,
   PokemonSearchComponent,
+  PokemonComponent,
 ];
 @NgModule({
   declarations: [...components],
